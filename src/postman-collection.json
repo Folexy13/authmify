@@ -1,0 +1,162 @@
+{
+  "info": {
+    "_postman_id": "loremispum",
+    "name": "authmify",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation Register($input: RegisterInput!) {\n  register(input: $input) {\n    access_token\n  }\n}",
+            "variables": {
+              "input": {
+                "email": "user@example.com",
+                "password": "securePassword123"
+              }
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/graphql",
+          "host": ["{{base_url}}"],
+          "path": ["graphql"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation Login($input: LoginInput!) {\n  login(input: $input) {\n    access_token\n  }\n}",
+            "variables": {
+              "input": {
+                "email": "user@example.com",
+                "password": "securePassword123"
+              }
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/graphql",
+          "host": ["{{base_url}}"],
+          "path": ["graphql"]
+        }
+      }
+    },
+    {
+      "name": "Setup Biometric",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation SetupBiometric($biometricKey: String!) {\n  setupBiometric(biometricKey: $biometricKey)\n}",
+            "variables": {
+              "biometricKey": "device-fingerprint-xyz"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/graphql",
+          "host": ["{{base_url}}"],
+          "path": ["graphql"]
+        }
+      }
+    },
+    {
+      "name": "Biometric Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "mutation BiometricLogin($input: BiometricInput!) {\n  biometricLogin(input: $input) {\n    access_token\n  }\n}",
+            "variables": {
+              "input": {
+                "biometricKey": "device-fingerprint-xyz"
+              }
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/graphql",
+          "host": ["{{base_url}}"],
+          "path": ["graphql"]
+        }
+      }
+    },
+    {
+      "name": "Protected Query",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query GetProtectedData {\n  protectedData\n}"
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/graphql",
+          "host": ["{{base_url}}"],
+          "path": ["graphql"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "auth_token",
+      "value": "paste-jwt-here-after-login"
+    }
+  ]
+}

@@ -96,6 +96,20 @@ A secure authentication system with standard and biometric login options, built 
 
 ```
 
+## Biometric  Login
+
+```
+   mutation BiometricLogin {
+      biometricLogin(input: {
+        biometricKey: "andriod-fingerprint-key-123"
+      }) {
+        access_token
+      }
+    }
+
+
+```
+
 ## Biometric Setup
 
 ### Add JWT to headers:
