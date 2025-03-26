@@ -47,8 +47,9 @@ export class AuthService {
     }
 
     async setupBiometricKey(userId: string, biometricKey: string) {
+
         // Check if biometric key is already in use
-        const existingUser = await this.prisma.user.findFirst({
+        const existingUser = await this.prisma.user.findUnique({
             where: {biometricKey},
         });
 

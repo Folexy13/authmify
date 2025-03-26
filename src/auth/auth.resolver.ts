@@ -4,7 +4,7 @@ import {RegisterInput} from './dto/register.input';
 import {LoginInput} from './dto/login.input';
 import {BiometricInput} from './dto/biometric.input';
 import {AuthResponse} from './entities/auth-response.entity';
-import {UseGuards} from '@nestjs/common';
+import {UnauthorizedException, UseGuards} from '@nestjs/common';
 import {JwtGuard} from './guards/jwt.guard';
 import {CurrentUser} from './decorators/current-user.decorator';
 import {BiometricGuard} from './guards/biometric.guard';
@@ -50,9 +50,13 @@ export class AuthResolver {
     @Mutation(() => Boolean)
     @UseGuards(JwtGuard)
     async setupBiometric(
-        @CurrentUser() user: { id: string },
+        @CurrentUser() user: { id: string }, // Make sure this matches your JWT payload
         @Args('biometricKey') biometricKey: string,
     ) {
+        console.log('Current user ID:', user?.id); // Debug log
+        if (!user?.id) {
+            throw new UnauthorizedException('Invalid user session');
+        }
         await this.authService.setupBiometricKey(user.id, biometricKey);
         return true;
     }
