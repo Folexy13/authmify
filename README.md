@@ -1,27 +1,27 @@
 ### NestJS Authentication API with GraphQL
 
-![App Overview](https://hlsnigeria.com.ng/static/home_images/bannerdoctor.png)
+![App Overview]
 
 A secure authentication system with standard and biometric login options, built with NestJS, GraphQL, and Prisma.
 
 ## Table of Contents
 
-- Features
-- Getting Started
-- API Usage
-- Testing
-- Future Improvements
-- Contributing
-- License
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [API Usage](#api-usage)
+- [Testing](#testing)
+- [Future Improvements](#future-improvements)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
-
-- JWT-based authentication
-- Standard email/password login
-- Biometric authentication
-- GraphQL API
-- Secure password hashing
-- Unit and e2e tests
+- ✅ JWT-based authentication
+- 🔐 Standard email/password login
+- 📱 Biometric authentication
+- 🚀 GraphQL API
+- 🛡️ Secure password hashing
+- 🧪 Unit and e2e tests
 
 ## Getting Started
 
@@ -43,10 +43,12 @@ A secure authentication system with standard and biometric login options, built 
    ```
    npm install
    ```
-3. Set up environment:
+3. i) Set up environment:
    ```
    cp .env.example .env
     ```
+   ii) Edit the .env file accordingly
+    
 
 
 4. Start the database:
