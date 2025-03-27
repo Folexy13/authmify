@@ -51,17 +51,13 @@ A secure authentication system with standard and biometric login options, built 
     
 
 
-4. Start the database:
-    ```
-    docker-compose up -d
-   ```
 
-5. Run migrations:
+4. Run migrations:
    ```
     npx prisma migrate dev --name init
     ```
 
-6. Start the server:
+5. Start the server:
     ```
     npm run start:dev
    ```
