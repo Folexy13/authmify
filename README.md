@@ -66,7 +66,7 @@ A secure authentication system with standard and biometric login options, built 
 
 ## API Usage
 
-### Access GraphQL Playground at http://localhost:8002/graphql.
+### Access GraphQL Playground at http://localhost:8002/graphql. 
 
 ## User Registration
 
@@ -123,9 +123,9 @@ A secure authentication system with standard and biometric login options, built 
 ### Run mutation:
 
 ```
-    mutation SetupBiometric {
-        setupBiometric(biometricKey: "device-fingerprint-xyz")
-    }
+        mutation SetupBiometric {
+            setupBiometric(biometricKey: "device-fingerprint-xyz")
+        }
 ```
 
 ## Testing
