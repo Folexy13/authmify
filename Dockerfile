@@ -26,6 +26,6 @@ RUN npm install --only=production
 COPY --from=development /usr/src/app/dist ./dist
 COPY --from=development /usr/src/app/prisma ./prisma
 
-EXPOSE 3000
+EXPOSE 8002
 
 CMD ["node", "dist/main.js"]
