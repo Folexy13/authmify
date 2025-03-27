@@ -7,7 +7,7 @@ async function bootstrap() {
 
     // Swagger Configuration
     const config = new DocumentBuilder()
-        .setTitle('Authmify - nests + grapql test')
+        .setTitle('Authmify - nestJS + grapql test')
         .setDescription('API Description')
         .setVersion('1.0')
         .addBearerAuth() // For JWT support (matches @ApiBearerAuth() in  resolver)
